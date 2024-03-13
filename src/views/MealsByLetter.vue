@@ -1,3 +1,29 @@
-<template><h1>Tìm kiếm theo ký tự</h1></template>
+<template>
+  <div class="flex justify-center gap-2 mt-2">
+    <router-link
+      :to="{ name: 'byLetter', params: { letter } }"
+      v-for="letter of letters"
+      :key="letter"
+    >
+      {{ letter }}
+    </router-link>
+  </div>
 
-<script setup></script>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8">
+    <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
+  </div>
+</template>
+
+<script setup>
+import { computed } from "@vue/reactivity";
+import { onMounted } from "vue";
+import MealItem from "./MealItem.vue";
+import store from "../store";
+
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+const meals = computed(() => store.state.mealsByLetter);
+
+onMounted(() => {
+  store.dispatch("searchMealsByLetter", route.params.letters);
+});
+</script>
