@@ -5,5 +5,5 @@ export function setMealsByLetter(state, meals) {
   state.mealsByLetter = meals;
 }
 export function setMealsByIngredients(state, meals) {
-  state.setMealsByIngredients = meals;
+  state.mealsByIngredient = meals;
 }

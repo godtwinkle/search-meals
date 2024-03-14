@@ -31,4 +31,3 @@ onMounted(() => {
   store.dispatch("searchMealsByLetter", route.params.letter);
 });
 </script>
-../components/MealItem.vue

@@ -68,4 +68,3 @@ onMounted(() => {
   });
 });
 </script>
-../components/YoutubeButton.vue
